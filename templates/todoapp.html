@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='todoapp.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='todoapp.js') }}"></script>
+    <title>ToDo App</title>
+</head>
+<body>
+    {% if tasks.__len__() == 0 %}
+        <p id="no_tasks_message"><b><i>You will see your tasks here!</i></b></p>
+    {% else %}
+      {% for task in tasks %}
+        <div class="todo" id="{{ task.item_id }}">
+            <div class="left">
+                <p class="task_description"><b>{{ task.task_description }}</b></p>
+                <p class="email"><i>Person responsible:</i> {{ task.email }}</p>
+                <p class="priority"><i>Priority:</i> {{ task.priority.capitalize() }}</p>
+            </div>
+            <form class="right" method="post">
+                <button type="button" class="button delete_task_button">Delete</button>
+            </form>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <hr>
+    <div id="new_task_form">
+        <form method="post">
+            <fieldset>
+                <legend>Task description</legend>
+                <input type="text" id="task_description_input" name="task_description_input" required>
+            </fieldset>
+            <fieldset>
+                <legend>Email of the person responsible for the task</legend>
+                <input type="email" id="email_input" name="email_input" required>
+            </fieldset>
+            <fieldset>
+                <legend>Task's priority:</legend>
+                <ul id="priority_input">
+                    <li values="low">Low</li>
+                    <li values="medium" id="selected_priority">Medium</li>
+                    <li values="high">High</li>
+                </ul>
+            </fieldset>
+            <button type="button" class="button" id="add_task_button">+ Add Task</button>
+        </form>
+    </div>
+</body>
+</html>

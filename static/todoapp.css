@@ -1,0 +1,88 @@
+body {
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 10px 5%;
+}
+
+.todo {
+    display: flex;
+    border-radius: 20px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    margin: 5px;
+}
+
+.todo p {
+    margin: 0px;
+}
+
+#no_tasks_message {
+    font-size: 16px;
+}
+
+.task_description {
+    font-size: 16px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete_task_button {
+    flex: 1;
+}
+
+.left {
+    flex: 1;
+}
+
+.button {
+    border: 2px solid #73AD21;
+    padding: 8px 16px;
+    margin: 4px 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+}
+
+.button:hover {
+    background-color: #73AD21;
+    color: white;
+}
+
+.error {
+    color: #ce2948;
+    margin-left: 5px;
+}
+
+label.error {
+    display: inline;
+}
+
+#priority_input {
+    display: flex;
+    padding: 0px;
+    margin: 5px 0px;
+}
+
+#priority_input li {
+    width: 60px;
+    padding: 10px 5%;
+    text-align: center;
+    margin-right: 20px;
+    display: inline-flex;
+    cursor: pointer;
+    border:#73AD21 solid 1px;
+    border-radius: 5px;
+    justify-content: space-evenly;
+}
+
+#priority_input li:hover {
+    background-color: #00000019;
+}
+
+#selected_priority{
+    background: #73AD21;
+    color: white;
+}
