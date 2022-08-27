@@ -10,29 +10,37 @@
     {% if tasks.__len__() == 0 %}
         <p id="no_tasks_message"><b><i>You will see your tasks here!</i></b></p>
     {% else %}
-      {% for task in tasks %}
-        <div class="todo" id="{{ task.item_id }}">
-            <div class="left">
-                <p class="task_description"><b>{{ task.task_description }}</b></p>
-                <p class="email"><i>Person responsible:</i> {{ task.email }}</p>
-                <p class="priority"><i>Priority:</i> {{ task.priority.capitalize() }}</p>
-            </div>
-            <form class="right" method="post">
-                <button type="button" class="button delete_task_button">Delete</button>
-            </form>
-        </div>
-      {% endfor %}
+        <table>
+            <tr>
+                <th>Task</th>
+                <th>Person responsible</th>
+                <th>Priority</th>
+                <th>Delete</th>
+            </tr>
+        {% for task in tasks %}
+            <tr class="task" id="{{ task.item_id }}">
+                <td>{{ task.task_description }}</td>
+                <td class="person_responsible">{{ task.email }}</td>
+                <td class="priority">{{ task.priority.capitalize() }}</td>
+                <td class="delete">
+                    <form method="post">
+                        <button type="button" class="button delete_task_button">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
     {% endif %}
     <hr>
     <div id="new_task_form">
         <form method="post">
             <fieldset>
                 <legend>Task description</legend>
-                <input type="text" id="task_description_input" name="task_description_input" required>
+                <input type="text" id="task_description_input" name="task_description_input" placeholder="Task description..." required>
             </fieldset>
             <fieldset>
-                <legend>Email of the person responsible for the task</legend>
-                <input type="email" id="email_input" name="email_input" required>
+                <legend>The person responsible for the task</legend>
+                <input type="email" id="email_input" name="email_input" placeholder="Email of the person..." required>
             </fieldset>
             <fieldset>
                 <legend>Task's priority:</legend>

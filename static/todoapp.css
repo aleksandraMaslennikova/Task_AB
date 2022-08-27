@@ -4,37 +4,30 @@ body {
     padding: 10px 5%;
 }
 
-.todo {
-    display: flex;
-    border-radius: 20px;
-    border: 2px solid #73AD21;
-    padding: 10px;
-    margin: 5px;
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.todo p {
-    margin: 0px;
+th, td {
+  border-bottom: 1px solid #73AD21;
+  padding: 15px;
+}
+
+tr:not(:first-child):hover {
+    background-color: #00000019;
+}
+
+td:nth-child(1) {
+    width: 50%;
+}
+
+.person_responsible, .priority, .delete {
+    text-align: center;
 }
 
 #no_tasks_message {
     font-size: 16px;
-}
-
-.task_description {
-    font-size: 16px;
-}
-
-.right {
-    display: flex;
-    flex-direction: column;
-}
-
-.delete_task_button {
-    flex: 1;
-}
-
-.left {
-    flex: 1;
 }
 
 .button {
@@ -49,6 +42,15 @@ body {
 .button:hover {
     background-color: #73AD21;
     color: white;
+}
+
+#task_description_input, #email_input{
+    width: 100%;
+    padding: 8px 13px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .error {

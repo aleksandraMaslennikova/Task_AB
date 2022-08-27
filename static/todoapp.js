@@ -39,7 +39,7 @@ $(document).ready(function(){
     });
 
     $(".delete_task_button").click(function() {
-        var id_to_del = parseInt($(this).parent().parent().attr('id'));
+        var id_to_del = parseInt($(this).closest('tr').attr('id'));
         $.ajax({
             type: 'POST',
             url: '/clear',

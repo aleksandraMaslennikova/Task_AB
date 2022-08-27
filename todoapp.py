@@ -37,7 +37,6 @@ def update_tasks(tasks):
 
 @app.route('/')
 def main():
-    print("PAGE RELOAD")
     tasks = load_tasks()
     return render_template("todoapp.html", tasks=tasks)
 
